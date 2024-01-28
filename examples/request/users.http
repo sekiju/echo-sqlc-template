@@ -1,0 +1,15 @@
+### Users / WhoAmI
+GET http://localhost:8000/users/whoami
+Authorization: Bearer {{accessToken}}
+
+### Users / Get
+GET http://localhost:8000/users/1
+
+### Users / Update
+PATCH http://localhost:8000/users/1
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "username": "Sekiju"
+}

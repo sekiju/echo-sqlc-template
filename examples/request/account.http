@@ -1,0 +1,70 @@
+// HTTP Requests with automatic authorization saving
+
+### Account / Login
+POST http://localhost:8000/account/login
+Content-Type: application/json
+
+{
+  "emailOrUsername": "Sekiju",
+  "password": "test1235"
+}
+
+> {%
+    client.global.set("accessToken", response.body.accessToken);
+    client.global.set("refreshToken", response.body.refreshToken);
+
+    console.log(client.global.get("accessToken"), client.global.get("refreshToken"))
+%}
+
+### Account / Register
+POST http://localhost:8000/account/register
+Content-Type: application/json
+
+{
+  "username": "Sekiju",
+  "email": "zzzcxk@gmail.com",
+  "password": "test1234"
+}
+
+### Account / Activate
+POST http://localhost:8000/account/activate
+Content-Type: application/json
+
+{
+  "code": "OuUxA6zGZNCgUUit100hc3qG2hGN8rLh"
+}
+
+> {%
+    client.global.set("accessToken", response.body.accessToken);
+    client.global.set("refreshToken", response.body.refreshToken);
+%}
+
+### Account / Activate / Resend
+POST http://localhost:8000/account/activate/resend
+Content-Type: application/json
+
+{
+  "email": "zzzcxk@gmail.com"
+}
+
+### Account / Password
+POST http://localhost:8000/account/password
+Content-Type: application/json
+
+{
+  "code": "7GUUFO7UH4QNFM35i4nWwW7abFIkdXIW",
+  "password": "test1235"
+}
+
+> {%
+    client.global.set("accessToken", response.body.accessToken);
+    client.global.set("refreshToken", response.body.refreshToken);
+%}
+
+### Account / Password / Resend
+POST http://localhost:8000/account/password/resend
+Content-Type: application/json
+
+{
+  "email": "zzzcxk@gmail.com"
+}

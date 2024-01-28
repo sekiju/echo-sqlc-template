@@ -1,0 +1,16 @@
+### Tokens / Refresh
+< {%
+    request.variables.set("token", client.global.get("refreshToken"))
+%}
+
+POST http://localhost:8000/tokens/refresh
+Content-Type: application/json
+
+{
+  "refreshToken": "{{token}}"
+}
+
+> {%
+    client.global.set("accessToken", response.body.accessToken);
+    client.global.set("refreshToken", response.body.refreshToken);
+%}

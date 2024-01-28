@@ -1,0 +1,18 @@
+application:
+  address: 127.0.0.1:8000
+  development: false
+
+database:
+  uri: postgres://postgres:postgres@localhost:5432/database
+  migrations: resources/migrations
+
+smtp:
+  from:
+  host:
+  username:
+  password:
+  port:
+
+storage:
+  host: http://localhost:8888
+  daemon: http://localhost:8888
